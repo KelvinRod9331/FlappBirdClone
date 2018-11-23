@@ -2,7 +2,7 @@ var bird;
 var pipes = [];
 
 function setup() {
-  createCanvas(400, 600);
+  createCanvas(1000, 600);
   bird = new Bird();
   pipes.push(new Pipe());
 }
@@ -14,8 +14,8 @@ function draw() {
     pipes[i].show();
     pipes[i].update();
 
-    if(pipes[i].hit(bird)){
-        console.log("HIT")
+    if (pipes[i].hit(bird)) {
+      console.log("HIT");
     }
 
     if (pipes[i].offScreen()) {
