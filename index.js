@@ -1,5 +1,7 @@
 var bird;
 var pipes = [];
+var points = 0;
+var gameOver = false
 
 function setup() {
   createCanvas(1000, 600);
@@ -13,9 +15,14 @@ function draw() {
   for (let i = pipes.length - 1; i >= 0; i--) {
     pipes[i].show();
     pipes[i].update();
+    pipes[i].missed(bird);
+ 
+    if (pipes[i].frames === 14) {
+      bird.scored();
+    }
 
     if (pipes[i].hit(bird)) {
-      console.log("HIT");
+      gameOver = true
     }
 
     if (pipes[i].offScreen()) {
@@ -26,7 +33,7 @@ function draw() {
   bird.show();
   bird.update();
 
-  if (frameCount % 100 == 0) {
+  if (frameCount % 250 == 0) {
     pipes.push(new Pipe());
   }
 }
@@ -37,5 +44,8 @@ function keyPressed() {
   }
 }
 
-setup();
-draw();
+
+if(gameOver){
+  alert("GAME OVER!")
+} 
+
