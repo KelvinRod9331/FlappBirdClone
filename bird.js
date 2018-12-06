@@ -1,6 +1,6 @@
 function Bird() {
   this.y = height / 2;
-  this.x = 64;
+  this.x = 300;
   this.r = (24 * height) / 600;
   this.gravity = this.speed > 7 ? 0.8 : 0.6;
   this.lift = -15;

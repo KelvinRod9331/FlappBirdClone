@@ -1,5 +1,5 @@
 function Pipe() {
-  this.gap = random(6 * bird.r + 4, 8 * bird.r);
+  this.gap = random(3 * bird.r + 4, 8 * bird.r);
   this.top = random(0, height - 8 * bird.r);
   this.bottom = height - (this.top + this.gap);
 
@@ -39,6 +39,8 @@ function Pipe() {
         this.highlight = true;
         return true;
       }
+    } else if(bird.y){
+      console.log({"Bottom + Height": this.bottom + height, "Bird Position": bird.y, "Btm": this.bottom})
     }
 
     this.highlight = false;
